@@ -390,6 +390,7 @@ function load(data=false){
       makeSortable();
       makeDeletable('.item');
       $('.list').on('contextmenu', event => event.preventDefault());
+      $('.tier').on('contextmenucontextmenu', event => event.preventDefault());
     }else{
       alert('No save data');
     }
@@ -397,9 +398,3 @@ function load(data=false){
     $(".data-upload").click();
   }
 }
-
-if (window.localStorage.getItem('data') && confirm('Do you want to load your history save data ?')){
-  load();
-}
-$('.list').on('contextmenu', event => event.preventDefault());
-$('.tier').on('contextmenu', event => event.preventDefault());
