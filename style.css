@@ -90,13 +90,30 @@ body{
     font-size: 50%;
 }
 
+.item .equipment {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 30px;
+  height: 30px!important;
+  background: rgba(0,0,0,0.5);
+}
+
+.equipment img{
+  width: inherit!important;
+}
+
+.equipment .comment{
+  font-size: 8px!important;
+}
+
 .item .comment{
   position: absolute;
   background: rgba(0,0,0,0.8);
   border-top-left-radius: 4px;
   color: silver;
   font-weight: 600;
-  bottom: 12px;
+  bottom: 0;
   right: 10px;
   padding: 2px 3px;
   line-height: 1em;

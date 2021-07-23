@@ -12,7 +12,7 @@
       <input type="file" class="upload data-upload" name="data-upload" accept=".txt">
       <button id='save' onclick='save();'>Save</button> <button id='load' onclick='load();'>Load</button> 
       | <button id='save' onclick='saveas();'>Download as DATA</button> <button id='loaddata' onclick='load(true);'>Load DATA</button> 
-      <br><button id='download'>Download as PNG</button> <button onclick='add()'>Add Tier</button> <button onclick="$('.comment').toggle()">Toggle Comment</button> <!--<button onclick="$('.name').toggle()">Toggle Name</button>-->
+      <br><button id='download'>Download as PNG</button> <button onclick='add()'>Add Tier</button> <button onclick="$('.item-character .comment:not(.item-weapon .comment)').toggle()">Toggle Character Comment</button> <button onclick="$('.item-weapon .comment').toggle()">Toggle Weapon Comment</button> <button onclick="$('.item-enemy .name').toggle()">Toggle Enemy Name</button> <button onclick='equip();'>Toggle Equip Mode</button><!--<button onclick="$('.name').toggle()">Toggle Name</button>-->
       <div class="tier" id="main">
         <h1 contenteditable="true">Genshin | Tier List</h1>
         <div class="tier-row">
@@ -45,7 +45,7 @@
         </div>
       </div>
       <div class="list" id="char" ondrop="upload(event, this);" ondragover="dragOverHandler(event);">
-        <span style='color:white; margin: auto'>(Load assets or drag your images file here)</span>
+        
       </div>
       <button onclick="generate(['char'])">Load Character</button>
       <button onclick="generate(['weapon'])">Load Weapon</button>
@@ -94,12 +94,40 @@
     <script>
       $(document).ready(function(){
         makeSortable();
-        if (window.localStorage.getItem('data') && confirm('Do you want to load your history save data ?')){
+        if (window.localStorage.getItem('data')){ // && confirm('Do you want to load your history save data ?')
           load();
         }
         $('.list').on('contextmenu', event => event.preventDefault());
         $('.tier').on('contextmenu', event => event.preventDefault());
       });  
+      var equiping = false;
+      function equip(){
+        if (equiping){
+          charSpawn.innerHTML = '';
+          $(".list").sortable('enable');
+          $(".tier .list .item.item-character").droppable('disable')
+          equiping = false;
+        }else{
+          equiping = true;
+          generate(['weapon'])
+          $(".list").sortable('disable');
+          $(".tier .list .item.item-character").droppable({
+            drop: function(event, ui){
+              if($(this).find('.equipment').length !== 0){
+                $(this).find('.equipment').remove();
+              }
+              $(this).append("<div class='equipment "+ $(ui.helper).attr('class') +"'>"+ $(ui.helper).html() +"</div>");
+              console.log(ui.helper);
+              ui.helper.remove();
+            },
+          })
+          $(".tier .list .item.item-character").droppable('enable')
+          $(".item.item-weapon").draggable({
+            revert:'invalid',
+            helper: 'clone',
+          });
+        }
+      }
 
       function makeSortable(){
         $(".list").sortable({

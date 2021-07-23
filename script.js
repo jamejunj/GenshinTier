@@ -243,7 +243,7 @@ function generate(data=['char','weapon','enemy']){
     char.forEach((c)=>{
       const div = document.createElement('div');
       makeDeletable(div);
-      div.className = 'item';
+      div.className = 'item item-character';
       div.innerHTML = `<img src='img/char/${c}.png'><div class='comment' onclick='edit(this);'>C0</div>`;
       charSpawn.appendChild(div);
     })
@@ -256,7 +256,7 @@ function generate(data=['char','weapon','enemy']){
       const div = document.createElement('div');
       makeDeletable(div);
       div.className = `item item-${parseInt(w[3]) + 1}-star item-weapon`;
-      div.innerHTML = `<img src='img/weapons/${w}'><div class='comment' onclick='edit(this);'>R0</div>`;
+      div.innerHTML = `<img src='img/weapons/${w}'><div class='comment' onclick='edit(this);'>R1</div>`;
       charSpawn.appendChild(div);
     })
   }
@@ -284,7 +284,7 @@ function edit(elem){
 $('#download').on('click', function(){
   $('.setting').hide()
   $('.tier').css('width','fit-content');
-  $('.tier').css('min-width','800px');
+  $('.tier').css('min-width','1200px');
   html2canvas(document.querySelector(".tier"), {scale:2}).then(canvas => {
     var link = document.createElement('a');
     link.download = 'download.png';
@@ -367,7 +367,7 @@ $(document).ready(function() {
 
 function createFile(filename, data) {
   var t = document.createElement('a');
-  t.setAttribute('href', 'data:text/plain; charset=utf-8,' + encodeURIComponent(data)); // 
+  t.setAttribute('href', 'data:text/plain; charset=utf-8,' + encodeURIComponent(data.replace(/(\r\n|\n|\r|\s\s)/gm, ""))); // 
   t.setAttribute('download', filename);
   t.click();
 }
@@ -390,7 +390,7 @@ function load(data=false){
       makeSortable();
       makeDeletable('.item');
       $('.list').on('contextmenu', event => event.preventDefault());
-      $('.tier').on('contextmenucontextmenu', event => event.preventDefault());
+      $('.tier').on('contextmenu', event => event.preventDefault());
     }else{
       alert('No save data');
     }
@@ -398,3 +398,16 @@ function load(data=false){
     $(".data-upload").click();
   }
 }
+
+$('.tier').on('contextmenu', function(e){
+  if (!e.ctrlKey && !equiping){
+    var target = $(e.target);
+    if (target.parent('.item').length && !target.parent().hasClass('equipment')){
+      var x = target.parent().clone();
+      $(charSpawn).append(x);
+      target.parent().remove();
+    }else{
+      console.log(target.parent('.item'));
+    }
+  }
+});
