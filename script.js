@@ -386,10 +386,14 @@ function saveas(){
 
 function load(data=false){
   if (!data){
-    $('.tier').html(window.localStorage.getItem('data'));
-    makeSortable();
-    makeDeletable('.item');
-    $('.list').on('contextmenu', event => event.preventDefault());
+    if (window.localStorage.getItem('data')){
+      $('.tier').html(window.localStorage.getItem('data'));
+      makeSortable();
+      makeDeletable('.item');
+      $('.list').on('contextmenu', event => event.preventDefault());
+    }else{
+      alert('No save data');
+    }
   }else{
     $(".data-upload").click();
   }
