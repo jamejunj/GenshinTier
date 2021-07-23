@@ -373,11 +373,10 @@ function createFile(filename, data) {
 }
 
 function save(){
-  if (window.localStorage.getItem('data') && confirm('Do you sure to save this data ? This will replace your old one!')){
+  if (confirm('Do you sure to save this data ? ')){
     window.localStorage.setItem('data',$('.tier').html());
     alert('Success : Data saved !');
   }
-    
 }
 
 function saveas(){
