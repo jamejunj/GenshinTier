@@ -355,6 +355,7 @@ $(document).ready(function() {
           $('.tier').html(f.result);
           makeSortable();
           makeDeletable('.item');
+          $('.list').on('contextmenu', event => event.preventDefault());
         }     
         f.readAsText(this.files[0]);
     });
@@ -372,8 +373,11 @@ function createFile(filename, data) {
 }
 
 function save(){
-  if (confirm('Do you sure to save this data'))
+  if (window.localStorage.getItem('data') && confirm('Do you sure to save this data ? This will replace your old one!')){
     window.localStorage.setItem('data',$('.tier').html());
+    alert('Success : Data saved !');
+  }
+    
 }
 
 function saveas(){
@@ -385,6 +389,7 @@ function load(data=false){
     $('.tier').html(window.localStorage.getItem('data'));
     makeSortable();
     makeDeletable('.item');
+    $('.list').on('contextmenu', event => event.preventDefault());
   }else{
     $(".data-upload").click();
   }
