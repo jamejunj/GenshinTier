@@ -213,6 +213,16 @@ function add(){
           placeholder: "item transparent",
           start: function(event, ui){
             ui.placeholder.html($(ui.item).html());
+            ui.placeholder.attr('class',$(ui.item).attr('class') + ' transparent');
+            if (event.ctrlKey){
+              $clone = ui.item.clone().insertBefore(ui.item);
+              $clone.attr('style','');
+              $clone.on('contextmenu', function(event){
+                if (event.ctrlKey){
+                  this.remove();
+                }
+              })
+            }
           },
           connectWith: ".list",
         });
@@ -343,6 +353,8 @@ $(document).ready(function() {
         var f =new FileReader();
         f.onload=function(){
           $('.tier').html(f.result);
+          makeSortable();
+          makeDeletable('.item');
         }     
         f.readAsText(this.files[0]);
     });
@@ -360,7 +372,8 @@ function createFile(filename, data) {
 }
 
 function save(){
-  window.localStorage.setItem('data',$('.tier').html())
+  if (confirm('Do you sure to save this data'))
+    window.localStorage.setItem('data',$('.tier').html());
 }
 
 function saveas(){
@@ -370,12 +383,15 @@ function saveas(){
 function load(data=false){
   if (!data){
     $('.tier').html(window.localStorage.getItem('data'));
+    makeSortable();
+    makeDeletable('.item');
   }else{
     $(".data-upload").click();
   }
-  makeSortable();
-  makeDeletable('.item')
 }
 
+if (window.localStorage.getItem('data') && confirm('Do you want to load your history save data ?')){
+  load();
+}
 $('.list').on('contextmenu', event => event.preventDefault());
 $('.tier').on('contextmenu', event => event.preventDefault());
