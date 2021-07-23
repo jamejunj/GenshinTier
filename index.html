@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Teir List Maker</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="container">
+      <input type="file" class="upload data-upload" name="data-upload" accept=".txt">
+      <button id='save' onclick='save();'>Save</button> <button id='load' onclick='load();'>Load</button> 
+      | <button id='save' onclick='saveas();'>Download as DATA</button> <button id='loaddata' onclick='load(true);'>Load DATA</button> 
+      <br><button id='download'>Download as PNG</button> <button onclick='add()'>Add Tier</button> <button onclick="$('.comment').toggle()">Toggle Comment</button> <!--<button onclick="$('.name').toggle()">Toggle Name</button>-->
+      <div class="tier" id="main">
+        <h1 contenteditable="true">Genshin | Tier List</h1>
+        <div class="tier-row">
+          <div class="header" contenteditable="true" style="background-color: #ff7a7a;"><span>S</span></div>
+          <div class="list"></div>
+          <div class="setting">
+            <button onclick='this.parentElement.parentElement.remove()'>&times;</button>
+          </div>
+        </div>
+        <div class="tier-row">
+          <div class="header" contenteditable="true" style="background-color: #ffab7a;"><span>A</span></div>
+          <div class="list"></div>
+          <div class="setting">
+            <button onclick='this.parentElement.parentElement.remove()'>&times;</button>
+          </div>
+        </div>
+        <div class="tier-row">
+          <div class="header" contenteditable="true" style="background-color: #ffe77a;"><span>B</span></div>
+          <div class="list"></div>
+          <div class="setting">
+            <button onclick='this.parentElement.parentElement.remove()'>&times;</button>
+          </div>
+        </div>
+        <div class="tier-row">
+          <div class="header" contenteditable="true" style="background-color: #87ff7a;"><span>C</span></div>
+          <div class="list"></div>
+          <div class="setting">
+            <button onclick='this.parentElement.parentElement.remove()'>&times;</button>
+          </div>
+        </div>
+      </div>
+      <div class="list" id="char" ondrop="upload(event, this);" ondragover="dragOverHandler(event);">
+        
+      </div>
+      <button onclick="generate(['char'])">Load Character</button>
+      <button onclick="generate(['weapon'])">Load Weapon</button>
+      <button onclick="generate(['enemy'])">Load Enemies</button>
+      <input type="file" class="upload file-upload" name="files" accept="image/*" multiple>
+      <button class='upload-button'>Upload</button>
+      <!--<h2>Weapons</h2>
+      <div class="list" id="wp">
+      </div>-->
+      <div class='toolbox'>
+        <div class='tool'>
+          <h2>Clone</h2>
+          <div class="list list-copy"></div>
+        </div>
+        <div class='tool' style="width:100px">
+          <h2>Delete</h2>
+          <div class="list list-remove" style="background-color:pink;"></div>
+        </div>
+      </div>
+      <!--<h2>Upload</h2>
+      <p>Drop your image file on the label below to upload file.</p>
+      <div class="list" id="upload"></div>
+      -->
+      <div style="margin-top: 10px; padding:20px; border: 2px solid black; border-radius: 15px;">
+        All images from Honey Hunter World. This was just my time killing project.
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="html2canvas.js"></script>
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <script src="jquery.ui.touch-punch.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        makeSortable();
+      });  
+
+      function makeSortable(){
+        $(".list").sortable({
+          placeholder: "item transparent",
+          start: function(event, ui){
+            ui.placeholder.html($(ui.item).html());
+            ui.placeholder.attr('class',$(ui.item).attr('class') + ' transparent');
+            if (event.ctrlKey){
+              $clone = ui.item.clone().insertBefore(ui.item);
+              $clone.attr('style','');
+              $clone.on('contextmenu', function(event){
+                if (event.ctrlKey){
+                  this.remove();
+                }
+              })
+            }
+          },
+          connectWith: ".list",
+        });
+        $(".list-copy").sortable({
+          //placeholder: "item transparent",
+          receive: function(event, ui){
+            var x = $(ui.item).clone();
+            $(this).append(x);
+          },
+          connectWith: ".list",
+        });
+        $(".list-remove").sortable({
+          //placeholder: "item transparent",
+          receive: function(event, ui){
+            $(this).html('');
+          },
+          connectWith: ".list",
+        });
+        $(".list").disableSelection();
+      }
+    </script> 
+  </body>
+</html>
