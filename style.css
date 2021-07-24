@@ -27,7 +27,7 @@ body{
     margin: 2px;
     border-radius: 10px;
     background-size: cover;
-    background-image: url(/img/1star.png) !important;
+    background-image: url(img/i1star.png) !important;
 }
 
 .item.item-2-star {
@@ -37,7 +37,7 @@ body{
     margin: 2px;
     border-radius: 10px;
     background-size: cover;
-    background-image: url(/img/2star.png) !important;
+    background-image: url(img/i2star.png) !important;
 }
 
 .item.item-3-star {
@@ -47,7 +47,7 @@ body{
     margin: 2px;
     border-radius: 10px;
     background-size: cover;
-    background-image: url(/img/3star.png) !important;
+    background-image: url(img/i3star.png) !important;
 }
 
 .item.item-4-star {
@@ -57,7 +57,7 @@ body{
     margin: 2px;
     border-radius: 10px;
     background-size: cover;
-    background-image: url(/img/4star.png) !important;
+    background-image: url(img/i4star.png) !important;
 }
 
 .item.item-5-star {
@@ -67,7 +67,7 @@ body{
     margin: 2px;
     border-radius: 10px;
     background-size: cover;
-    background-image: url(/img/5star.png) !important;
+    background-image: url(img/i5star.png) !important;
 }
 
 .item.item-enemy{

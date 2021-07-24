@@ -284,7 +284,7 @@ function edit(elem){
 $('#download').on('click', function(){
   $('.setting').hide()
   $('.tier').css('width','fit-content');
-  $('.tier').css('min-width','1200px');
+  $('.tier').css('min-width','800px');
   html2canvas(document.querySelector(".tier"), {scale:2}).then(canvas => {
     var link = document.createElement('a');
     link.download = 'download.png';
