@@ -84,7 +84,7 @@
       </p>
       <div style="margin-top: 10px; padding:20px; border: 2px solid black; border-radius: 15px;">
         All images from Honey Hunter World. This was just my time killing project.
-      </div>
+      </div>      
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="html2canvas.js"></script>
@@ -94,9 +94,9 @@
     <script>
       $(document).ready(function(){
         makeSortable();
-        if (window.localStorage.getItem('data')){ // && confirm('Do you want to load your history save data ?')
+        /*if (window.localStorage.getItem('data') && confirm('Do you want to load your history save data ?')){ 
           load();
-        }
+        }*/
         $('.list').on('contextmenu', event => event.preventDefault());
         $('.tier').on('contextmenu', event => event.preventDefault());
       });  
@@ -165,5 +165,14 @@
         $(".list").disableSelection();
       }
     </script> 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TSHQ4JN1LQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-TSHQ4JN1LQ');
+</script>
   </body>
 </html>

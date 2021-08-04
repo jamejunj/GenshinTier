@@ -4,6 +4,20 @@ const uploadSpawn = charSpawn; //document.getElementById('upload');
 
 const main = document.getElementById('main');
 
+const color = [
+  '#ff5050',
+  '#ffa852',
+  '#ffd452',
+  '#ffff52',
+  '#a8ff52',
+  '#52ff52',
+  '#52ff7d',
+  '#52d4ff',
+  '#7d52ff',
+  '#d452ff',
+  '#ff527d',
+]
+
 const charByAlpha = [
   'albedo',
   'amber',
@@ -52,7 +66,7 @@ const charByAlpha = [
 const char = ["noelle"
   ,"ningguang"
   ,"zhongli"
-  ,"albedo"
+  ,"albedo" // end geo here
   ,"amber"
   ,"bennett"
   ,"xiangling"
@@ -61,11 +75,12 @@ const char = ["noelle"
   ,"klee"
   ,"hutao"
   ,"yanfei"
-  ,"yoimiya"
+  ,"yoimiya" // end pyro here
   ,"barbara"
   ,"xingqiu"
   ,"mona"
   ,"tartaglia"
+  ,"kokomi" // end hydro here
   ,"kaeya"
   ,"chongyun"
   ,"qiqi"
@@ -74,11 +89,14 @@ const char = ["noelle"
   ,"rosaria"
   ,"eula"
   ,"ayaka"
+  ,"aloy" // end cryo here
   ,"lisa"
   ,"razor"
   ,"fischl"
   ,"beidou"
   ,"keqing"
+  ,"sara"
+  ,"raiden" // end electro here
   ,"jean"
   ,"sucrose"
   ,"venti"
@@ -201,14 +219,15 @@ const enemies = [
   , {name:"Childe",src:"m_29030101_70.png"}, {name:"Azhdaha",src:"m_29040101_70.png"}]
 
 function add(){
-  main.innerHTML += `<div class="tier-row">
+  $(main).append(`<div class="tier-row">
           <div class="header" contenteditable="true" style="background-color: #87ff7a;"><span>D</span></div>
           <div class="list"></div>
           <div class="setting">
             <button onclick='this.parentElement.parentElement.remove()'>&times;</button>
             <input type="color" onchange='this.parentElement.parentElement.children[0].style.backgroundColor = this.value;' value="#87ff7a"/>
+
           </div>
-        </div>`;
+        </div>`);
   $(".tier-row .list").sortable({
           placeholder: "item transparent",
           start: function(event, ui){
@@ -411,3 +430,13 @@ $('.tier').on('contextmenu', function(e){
     }
   }
 });
+
+function addRow(){
+  $('<div class="list">').insertBefore('.setting');
+  makeSortable();
+}
+
+function removeRow(){
+  $('<div class="list">').insertBefore('.setting');
+  makeSortable();
+}
