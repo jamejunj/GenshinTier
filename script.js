@@ -150,6 +150,7 @@ const enemies = [
   {name:"Electro H.",src:"m_20040101_70.png"}, 
   {name:"Anemo H.",src:"m_20040201_70.png"}, 
   {name:"Geo H.",src:"m_20040301_70.png"}, 
+  {name:"Hydro H.",src:"m_20040401_70.png"}, 
   {name:"Cryo H.",src:"m_20040501_70.png"}, 
   {name:"Pyro H.",src:"m_20040601_70.png"}, 
   {name:"Oceanid",src:"m_20050101_70.png"}, 
@@ -163,6 +164,13 @@ const enemies = [
   {name:"Ferret",src:"ndm_502_70.png"}, 
   {name:"Frog",src:"ndm_502_70.png"}, 
   {name:"Raptor",src:"ndm_502_70.png"},
+  {name:"Specter",src:"m_20060101_70.png"}, 
+  {name:"Specter",src:"m_20060201_70.png"}, 
+  {name:"Specter",src:"m_20060301_70.png"}, 
+  {name:"Specter",src:"m_20060401_70.png"}, 
+  {name:"Specter",src:"m_20060501_70.png"}, 
+  {name:"Specter",src:"m_20060601_70.png"}, 
+  {name:"Thunder Manifestation",src:"m_20070101_70.png"}, 
   {name:"Azhdaha",src:"m_29040101_70.png"},
   {name:"Hilichurls",src:"m_21010101_70.png"}, 
   {name:"Fighter",src:"m_21010201_70.png"}, 
@@ -198,6 +206,15 @@ const enemies = [
   {name:"Abyss Mage",src:"m_22010401_70.png"}, 
   {name:"Abyss Herald",src:"m_22020101_70.png"}, 
   {name:"Abyss Lector",src:"m_22030101_70.png"}, 
+  {name:"Abyss Lector",src:"m_22030201_70.png"}, 
+  {name:"Rifthound Whelp",src:"m_22040101_70.png"},
+  {name:"Rifthound Whelp",src:"m_22040201_70.png"},
+  {name:"Rifthound",src:"m_22050101_70.png"},
+  {name:"Rifthound",src:"m_22050201_70.png"},
+  {name:"Golden Wolflord",src:"m_22060101_70.png"},
+  {name:"Shadowy Husk",src:"m_22070101_70.png"},
+  {name:"Shadowy Husk",src:"m_22070201_70.png"},
+  {name:"Shadowy Husk",src:"m_22070301_70.png"},
   {name:"Fatui",src:"m_23010101_70.png"}, 
   {name:"Fatui",src:"m_23010201_70.png"}, 
   {name:"Fatui",src:"m_23010301_70.png"}, 
@@ -220,8 +237,10 @@ const enemies = [
   {name:"Scount",src:"m_25010201_70.png"}, 
   {name:"Pyro",src:"m_25010301_70.png"}, 
   {name:"Hydro",src:"m_25010401_70.png"}, 
-  {name:"Electro",src:"m_25010501_70.png"}, {name:"Cryo",src:"m_25010601_70.png"}, {name:"Handyman",src:"m_25010701_70.png"}, {name:"Raptor",src:"m_25020101_70.png"}, {name:"Marksman",src:"m_25020201_70.png"}, {name:"Carmen",src:"m_25030101_70.png"}, {name:"Gravedigger",src:"m_25030201_70.png"}, {name:"Seaman",src:"m_25030301_70.png"}, {name:"Boss",src:"m_25040101_70.png"}, {name:"Millelith",src:"m_25050101_70.png"}, {name:"Millelith",src:"m_25050201_70.png"}, {name:"Pugilist",src:"m_25060101_70.png"}, {name:"Crusher",src:"m_25070101_70.png"}, {name:"Jintou-Ban",src:"m_25080101_70.png"}, {name:"Hitsuke-Ban",src:"m_25080201_70.png"}, {name:"Kikou-Ban",src:"m_25080301_70.png"}, {name:"Maguu Kenki",src:"m_25090101_70.png"}, {name:"Dancing Thunder",src:"m_25100101_70.png"}, {name:"Fiery Might",src:"m_25100201_70.png"}, {name:"Whopperflower",src:"m_26010101_70.png"}, {name:"Whopperflower",src:"m_26010201_70.png"}, {name:"Whopperflower",src:"m_26010301_70.png"}, {name:"Regisvine",src:"m_26020101_70.png"}, {name:"Regisvine",src:"m_26020201_70.png"}, {name:"Geovishap",src:"m_26030101_70.png"}, {name:"Geovishap",src:"m_26040101_70.png"}, {name:"Primo Geo.",src:"m_26050101_70.png"}, {name:"Electro Cicin",src:"m_26060101_70.png"}, {name:"Hydro Cicin",src:"m_26060201_70.png"}, {name:"Cryo Cicin",src:"m_26060301_70.png"}, {name:"Stromterror",src:"m_29010101_70.png"}, {name:"Boreas",src:"m_29020101_70.png"}
-  , {name:"Childe",src:"m_29030101_70.png"}, {name:"Azhdaha",src:"m_29040101_70.png"}]
+  {name:"Electro",src:"m_25010501_70.png"}, {name:"Cryo",src:"m_25010601_70.png"}, {name:"Handyman",src:"m_25010701_70.png"}, {name:"Raptor",src:"m_25020101_70.png"}, {name:"Marksman",src:"m_25020201_70.png"}, {name:"Carmen",src:"m_25030101_70.png"}, {name:"Gravedigger",src:"m_25030201_70.png"}, {name:"Seaman",src:"m_25030301_70.png"}, {name:"Boss",src:"m_25040101_70.png"}, {name:"Millelith",src:"m_25050101_70.png"}, {name:"Millelith",src:"m_25050201_70.png"}, {name:"Pugilist",src:"m_25060101_70.png"}, {name:"Crusher",src:"m_25070101_70.png"}, {name:"Jintou-Ban",src:"m_25080101_70.png"}, {name:"Hitsuke-Ban",src:"m_25080201_70.png"}, {name:"Kikou-Ban",src:"m_25080301_70.png"}, {name:"Maguu Kenki",src:"m_25090101_70.png"}, {name:"Lone Gale",src:"ndm_50902_70.png"}, {name:"Galloping Frost",src:"ndm_50903_70.png"}, {name:"Mask of Terror",src:"ndm_50904_70.png"}, {name:"Dancing Thunder",src:"m_25100101_70.png"}, {name:"Fiery Might",src:"m_25100201_70.png"}, {name:"Whopperflower",src:"m_26010101_70.png"}, {name:"Whopperflower",src:"m_26010201_70.png"}, {name:"Whopperflower",src:"m_26010301_70.png"}, {name:"Regisvine",src:"m_26020101_70.png"}, {name:"Regisvine",src:"m_26020201_70.png"}, {name:"Geovishap",src:"m_26030101_70.png"}, {name:"Geovishap",src:"m_26040101_70.png"}, {name:"Primo Geo.",src:"m_26050101_70.png"}, {name:"Electro Cicin",src:"m_26060101_70.png"}, {name:"Hydro Cicin",src:"m_26060201_70.png"}, {name:"Cryo Cicin",src:"m_26060301_70.png"}, {name:"Stromterror",src:"m_29010101_70.png"}, {name:"Boreas",src:"m_29020101_70.png"}
+  , {name:"Childe",src:"m_29030101_70.png"}, {name:"Azhdaha",src:"m_29040101_70.png"},
+  {name:"La Signora",src:"m_29050101_70.png"},
+  {name:"Raiden Shogun",src:"ndm_90601_70.png"},]
 
 function add(){
   $(main).append(`<div class="tier-row">
