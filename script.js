@@ -170,8 +170,8 @@ const enemies = [
   {name:"Specter",src:"m_20060401_70.png"}, 
   {name:"Specter",src:"m_20060501_70.png"}, 
   {name:"Specter",src:"m_20060601_70.png"}, 
-  {name:"Thunder Manifestation",src:"m_20070101_70.png"}, 
-  {name:"Azhdaha",src:"m_29040101_70.png"},
+  {name:"Manifestation",src:"m_20070101_70.png"}, 
+  
   {name:"Hilichurls",src:"m_21010101_70.png"}, 
   {name:"Fighter",src:"m_21010201_70.png"}, 
   {name:"Wooden Shield",src:"m_21010301_70.png"}, 
