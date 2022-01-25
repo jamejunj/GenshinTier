@@ -233,7 +233,7 @@ const enemies = [
   {name:"Ruin Defender",src:"m_24020301_70.png"}, 
   {name:"Ruin Scount",src:"m_24020401_70.png"}, 
   {name:"Perpetual Array",src:"m_24021101_70.png"}, 
-  {name:"Treasure",src:"m_25010101_70.png"}, 
+  {name:"Liuliu",src:"m_25010101_70.png"}, 
   {name:"Scount",src:"m_25010201_70.png"}, 
   {name:"Pyro",src:"m_25010301_70.png"}, 
   {name:"Hydro",src:"m_25010401_70.png"}, 
